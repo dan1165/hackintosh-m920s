@@ -12,7 +12,7 @@ Everything in **§4 onward** is done *from the macOS installer*.
   Back up anything you need first.
 - Keep the machine on **Ethernet** (the install downloads ~12 GB from Apple).
   **Wireless is Ethernet-only by decision** — the tested RTL8851BU USB dongle is
-  incompatible with macOS (see `README.md §6d`).
+  incompatible with macOS (see `UPGRADES.md`).
 - Use a **DisplayPort** monitor output, **not VGA**.
 - Keep the USB stick you build in §1 — it doubles as your recovery disk.
 - If you'd rather **keep Proxmox**, skip this and install to a *second* SSD instead
@@ -76,7 +76,7 @@ sudo umount /mnt/oc
 ## 2. BIOS settings
 
 Enter BIOS with **F1** (or **F12** for the one-time boot menu).
-Apply the checklist in `README.md §3`. The essentials:
+Apply the checklist in `BIOS.md`. The essentials:
 
 - **Startup → OS Optimized Defaults → Disabled**
 - **Security → Secure Boot → Disabled**
@@ -99,7 +99,7 @@ Save & exit.
 5. When the **macOS Utilities** window appears, you're in.
 
 > If it hangs at the Apple logo with no progress, add `-v` is already on; note the last
-> line and see `README.md §8`.
+> line and see `TROUBLESHOOTING.md`.
 
 ---
 
@@ -165,10 +165,10 @@ it automatically, press **F12/Enter** at power-on and choose the internal **"UEF
 1. **Reset NVRAM once:** OpenCore picker → **Tools / Reset NVRAM** (or space bar → Reset NVRAM).
 2. **Remove verbose logging:** edit `config.plist → NVRAM → boot-args` and drop the `-v`
    (keep `keepsyms=1 alcid=3`). Re-validate.
-3. **Audio:** if silent, walk the ALC233 layout list (`README.md §6a`): `3 → 13 → 21 → 4 → 5 → …`.
+3. **Audio:** if silent, walk the ALC233 layout list (`POST-INSTALL.md §3`): `3 → 13 → 21 → 4 → 5 → …`.
    Reset NVRAM between tries.
 4. **USB 3 speeds:** run **USBToolBox** (`PostInstall/USBToolBox-1.2.0-RELEASE.zip`) and
-   build `UTBMap.kext`, then enable it in the config (`README.md §6b`).
+   build `UTBMap.kext`, then enable it in the config (`POST-INSTALL.md §4`).
 5. **iMessage/FaceTime:** sign in to your Apple ID. If it fails, do a fresh
    NVRAM reset and retry (the serial/MLB/ROM are already valid and consistent).
 6. **Verify sensors/power:** install a tool like HWSensors/Stats; SMCSuperIO/SMCProcessor
@@ -192,5 +192,5 @@ Capture OpenCore logs for diagnosis by setting `Misc → Debug → Target = 67` 
 
 ---
 
-*Everything referenced here lives in `/root/hackintosh` (EFI, PostInstall, README.md,
-RELIABILITY-AUDIT.md). Keep a copy of the USB — it is also your rescue disk.*
+*Everything referenced here lives in the repo (EFI/, PostInstall/, docs/).
+Keep a copy of the USB — it is also your rescue disk.*

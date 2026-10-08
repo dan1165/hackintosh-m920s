@@ -1,0 +1,42 @@
+name: Validate OpenCore config
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'EFI/OC/config.plist'
+      - 'EFI/OC/**'
+      - '.github/workflows/validate.yml'
+  pull_request:
+    paths:
+      - 'EFI/OC/config.plist'
+      - 'EFI/OC/**'
+  workflow_dispatch:
+
+jobs:
+  ocvalidate:
+    name: ocvalidate ${{ matrix.oc }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        oc: [ "1.0.8" ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download OpenCore ${{ matrix.oc }} (ocvalidate)
+        run: |
+          set -e
+          curl -sSL -o oc.zip \
+            "https://github.com/acidanthera/OpenCorePkg/releases/download/${{ matrix.oc }}/OpenCore-${{ matrix.oc }}-RELEASE.zip"
+          unzip -q oc.zip -d oc
+          OCVAL=$(find oc -type f -name 'ocvalidate.linux' | head -1)
+          if [ -z "$OCVAL" ]; then echo "ocvalidate.linux not found"; exit 1; fi
+          cp "$OCVAL" ./ocvalidate
+          chmod +x ./ocvalidate
+          ./ocvalidate --version || true
+
+      - name: Validate EFI/OC/config.plist
+        run: |
+          ./ocvalidate EFI/OC/config.plist
