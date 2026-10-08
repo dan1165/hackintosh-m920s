@@ -1,0 +1,9 @@
+# local toolchain downloads and extraction (not part of the repo)
+downloads/
+*.dSYM/
+build_config.py
+manifest.txt
+# session ACPI dump (large, machine-specific raw firmware)
+/tmp/opencode/acpi_dump/
+# OS junk
+.DS_Store
