@@ -4,8 +4,8 @@
 No. This EFI is tailored to the **exact** hardware (Q370, UHD 630, ALC233, I219-LM, SN730).
 SMBIOS, SSDTs and quirks are machine-specific. Use it as a reference, not a universal EFI.
 
-**Will installing erase my Proxmox install?**
-Yes — following the guide erases the whole WD SN730. To keep Proxmox, install macOS to a
+**Will installing erase my existing OS?**
+Yes — the guide erases the target disk. To keep an existing OS, install macOS to a
 **second disk** instead (see `UPGRADES.md`).
 
 **Which macOS version?**
@@ -13,8 +13,7 @@ Sonoma 14.x — best stability with full iGPU support. Sequoia works but is less
 Tahoe (26) is riskier and likely needs patches.
 
 **Does Wi-Fi/Bluetooth work?**
-No wireless card is supported on this machine. **Ethernet-only** by decision. A tested
-Realtek RTL8851BU USB dongle was **rejected**. Add a **BCM94360NG** if you need wireless.
+No wireless card is supported on this machine. **Ethernet-only** by decision. The Realtek RTL8851BU USB dongle has **no macOS driver**. Add a **BCM94360NG** if you need wireless.
 
 **Is this safe / legitimate?**
 Running macOS on non-Apple hardware is against Apple's EULA. This is for personal

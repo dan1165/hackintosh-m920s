@@ -1,21 +1,21 @@
 # Installation Guide — macOS Sonoma on the ThinkCentre M920s
 
 Follow in order. Total time ≈ 45–90 min (mostly downloads).
-Everything in **§1–§3** is done *from the running Proxmox/Linux host*.
+Everything in **§1–§3** is done *from the running Linux host*.
 Everything in **§4 onward** is done *from the macOS installer*.
 
 ---
 
 ## ⚠️ 0. Before you start — read this
 
-- **This erases the internal WD SN730 completely**, including Proxmox and VM 101.
+- **This erases the target disk completely.**
   Back up anything you need first.
 - Keep the machine on **Ethernet** (the install downloads ~12 GB from Apple).
   **Wireless is Ethernet-only by decision** — the tested RTL8851BU USB dongle is
   incompatible with macOS (see `UPGRADES.md`).
 - Use a **DisplayPort** monitor output, **not VGA**.
 - Keep the USB stick you build in §1 — it doubles as your recovery disk.
-- If you'd rather **keep Proxmox**, skip this and install to a *second* SSD instead
+- If you'd rather **keep an existing OS**, skip this and install to a *second* SSD instead
   (same steps, just pick the second disk in §5).
 
 ---
@@ -112,7 +112,7 @@ Save & exit.
    - Name: `Macintosh HD`
    - Format: **APFS**
    - Scheme: **GUID Partition Map**
-4. **Erase**. (This wipes Proxmox and all partitions.)
+4. **Erase**. (This wipes all existing partitions.)
 
 ---
 

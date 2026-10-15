@@ -3,12 +3,12 @@
 Plain-language definitions for the terms used in this repo.
 
 **ACPI** — Firmware tables that describe the hardware (devices, power, interrupts). macOS
-reads them; we sometimes inject small fixes.
+reads them; small fixes are sometimes injected.
 
 **SSDT** — A small ACPI table OpenCore adds to fix or extend the firmware's descriptions
 (e.g. enable the RTC, add an EC, enable CPU power management).
 
-**DSDT** — The main ACPI table (the big one). We disassemble it to understand the machine.
+**DSDT** — The main ACPI table (the big one). It's disassembled to understand the machine.
 
 **OpenCore (OC)** — The bootloader. It runs before macOS, injects kexts/SSDTs/config, and
 starts the macOS kernel.
@@ -16,9 +16,9 @@ starts the macOS kernel.
 **EFI** — (1) The small FAT32 partition where bootloaders live; (2) the folder (`EFI/`) that
 contains `BOOT/` and `OC/`. In this repo "the EFI" means the folder you copy to the USB/disk.
 
-**`config.plist`** — OpenCore's main settings file (XML). Everything we configure lives here.
+**`config.plist`** — OpenCore's main settings file (XML). All configuration lives here.
 
-**Kext** — A kernel extension = macOS driver. We inject ours from the EFI instead of
+**Kext** — A kernel extension = macOS driver. Third-party kexts are injected from the EFI instead of
 installing them.
 
 **Lilu** — The base kext ("patch engine") many other kexts depend on. Always load it first.
@@ -32,12 +32,12 @@ codec (ours is an ALC233).
 
 **VirtualSMC / SMC** — macOS expects an Apple SMC chip; VirtualSMC emulates it. Required.
 
-**SMBIOS** — The "identity" macOS sees (we present an **iMac19,1**). Includes serial, MLB
+**SMBIOS** — The "identity" macOS sees (a chosen model — here **iMac19,1**). Includes serial, MLB
 (board serial), UUID, and ROM. Needed for iServices.
 
 **MLB** — Main Logic Board serial, part of the SMBIOS identity.
 
-**ROM** — The "MAC address" field of the SMBIOS identity (we use the real Ethernet MAC).
+**ROM** — The "MAC address" field of the SMBIOS identity (set to the real Ethernet MAC).
 
 **Quirks** — OpenCore workaround switches for firmware bugs (CFG Lock, MMIO, memory map…).
 
@@ -45,13 +45,13 @@ codec (ours is an ALC233).
 this machine → handled by `AppleXcpmCfgLock=true`.
 
 **AWAC / RTC** — Two ways firmware provides the real-time clock. macOS only understands the
-legacy **RTC**, so we disable AWAC.
+legacy **RTC**, so AWAC is disabled.
 
 **EC (Embedded Controller)** — A small controller. Desktops have an incompatible one, so we
 add a **fake EC** that macOS accepts.
 
 **PMC** — Power Management Controller; on 300-series chips its ACPI description is missing,
-so we add `SSDT-PMC` to get working **NVRAM**.
+so `SSDT-PMC` is added to get working **NVRAM**.
 
 **NVRAM** — Persistent firmware variables (boot entries, settings). Needed for a proper Mac
 experience.

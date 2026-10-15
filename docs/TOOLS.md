@@ -3,7 +3,7 @@
 Every tool that was used to detect the hardware, build the EFI, validate it, and (optionally)
 push this repo. All are free/open-source or standard.
 
-## Building the EFI (what I ran on the Proxmox host)
+## Building the EFI (run on the Linux host)
 | Tool | Version | Used for | Link |
 |---|---|---|---|
 | **OpenCorePkg** | 1.0.8 | The bootloader itself + sample ACPI/config + utilities below | github.com/acidanthera/OpenCorePkg |

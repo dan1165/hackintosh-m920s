@@ -1,6 +1,6 @@
 # Multiboot (macOS + Windows + Linux)
 
-This machine originally ran Proxmox (Linux). You can keep it and add macOS.
+You can install macOS alongside an existing operating system (dual-boot).
 
 ## Safest: separate disks
 Install macOS to its **own** NVMe/SATA disk. OpenCore's picker can then chain-load the others.

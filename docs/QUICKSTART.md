@@ -15,7 +15,7 @@
 
 ## The 4 steps
 
-### 1. Flash the USB (from any Linux/Proxmox machine)
+### 1. Flash the USB (from any Linux machine)
 ```bash
 lsblk                       # find your USB → /dev/sdX
 sudo umount /dev/sdX* 2>/dev/null

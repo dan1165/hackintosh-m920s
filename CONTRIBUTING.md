@@ -5,7 +5,7 @@ little different from normal software.
 
 ## What this repo is (and isn't)
 - **Is:** a reference EFI + documentation for **one exact machine** — a Lenovo ThinkCentre M920s
-  (10SKS5KF00, Q370, i7-9700).
+  (Q370, i7-9700).
 - **Isn't:** a generic "works on everything" EFI. Changes that help other machines are welcome
   **only if they don't regress this one**.
 

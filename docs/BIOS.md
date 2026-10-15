@@ -3,7 +3,7 @@
 Enter BIOS with **F1** at power-on. One-time boot menu is **F12**.
 Lenovo's menus vary slightly by firmware revision — this machine is `M1UKT79A 1.121`.
 
-> Rule of thumb: we need a **pure UEFI, non-secure-boot, iGPU-primary, AHCI** system.
+> Rule of thumb: the target needs a **pure UEFI, non-secure-boot, iGPU-primary, AHCI** system.
 
 ## Required
 
@@ -46,7 +46,7 @@ Lenovo's menus vary slightly by firmware revision — this machine is `M1UKT79A 
 | After Power Loss | Last State / Off | personal preference |
 
 ## About CFG Lock (MSR 0xE2)
-This machine's firmware has **CFG Lock enabled** (verified: `MSR 0xE2 = 0x1E008008`, bit 15 set),
+The M920s firmware has **CFG Lock enabled** (verified: `MSR 0xE2 = 0x1E008008`, bit 15 set),
 and Lenovo does not expose a toggle for it.
 
 - The EFI already works around it with `Kernel → Quirks → AppleXcpmCfgLock = true`. **Do not

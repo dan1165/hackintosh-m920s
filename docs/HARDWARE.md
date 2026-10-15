@@ -6,7 +6,7 @@ rather than copied from a spec sheet.
 ## Summary
 | Part | Details | macOS |
 |---|---|---|
-| Model | Lenovo **ThinkCentre M920s** (10SKS5KF00), board `3132` | — |
+| Model | Lenovo **ThinkCentre M920s**, board `3132` | — |
 | BIOS | LENOVO `M1UKT79A` v1.121 (2026-03-12, AMI, 12 MB ROM) | — |
 | Embedded controller | `M1UCT18A-1.18`, boot block `1.79` | — |
 | CPU | Intel **Core i7-9700** "Coffee Lake Refresh", 8C/8T, 3.0→4.7 GHz, 12 MB L3 | ✅ native |
@@ -19,7 +19,7 @@ rather than copied from a spec sheet.
 | Ethernet | Intel **I219-LM** (`8086:15BB`) | ✅ IntelMausi |
 | Audio | Realtek **ALC233** (`10EC:0235`) on cAVS HDA (`8086:A348`) | ✅ AppleALC |
 | USB | Cannon Lake PCH xHCI (`8086:A36D`), 16×USB2 / 10×USB3 | ✅ (map for USB3) |
-| Wi-Fi/BT | none supported (USB RTL8851BU tested and rejected) | ❌ Ethernet-only |
+| Wi-Fi/BT | none supported (RTL8851BU has no macOS driver) | ❌ Ethernet-only |
 | Display out | 2× DisplayPort (rear VGA unusable by macOS) | ✅ |
 | TPM | 2.0 present | (disable Secure Boot) |
 | Boot mode | UEFI, CSM disabled | ✅ |
@@ -46,13 +46,13 @@ Framebuffer used: AAPL,ig-platform-id = 07009B3E (0x3E9B0007)
 - Slots: `ChannelA-DIMM1` and `ChannelB-DIMM1` populated → **dual-channel**.
 - Free: `ChannelA-DIMM0`, `ChannelB-DIMM0`. Max 64 GB (4 DIMMs).
 
-## Storage / disks (as shipped, before install)
+## Storage / disks (reference unit, before install)
 GPT on `/dev/nvme0n1`:
 | # | Size | Type | Use |
 |---|---|---|---|
 | 1 | 1 MB | BIOS boot | (legacy) |
-| 2 | 1 GB | EFI System | Proxmox bootloader |
-| 3 | 475 GB | Linux LVM | Proxmox (root/swap/data + VM 101) |
+| 2 | 1 GB | EFI System | existing OS bootloader |
+| 3 | 475 GB | Linux LVM | existing Linux (root/swap/data) |
 
 The macOS install **replaces all of this**.
 

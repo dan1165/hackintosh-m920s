@@ -32,7 +32,7 @@ The community driver **[chris1111 / Wireless-USB-OC-Big-Sur-Adapter](https://git
 ❌ **No Wi-Fi 6 / 802.11ax USB dongle has a macOS driver** — RTL8851BU / 8852AU / 8852BU class
 chips are Linux-only (`rtw89`).
 
-**Rejected (tested):** the installed TP-Link Realtek **RTL8851BU** USB Wi-Fi 6 + BT combo
+**Not supported:** the **RTL8851BU** USB Wi-Fi 6 + BT combo
 (`3625:010B`) — no macOS driver for either half, and macOS can't do its ZeroCD switch.
 
 ⚠️ Even a working USB dongle gives **no AirDrop/Handoff/Continuity**. For those, use a Broadcom card.
@@ -52,8 +52,8 @@ keeps doing video encode/decode. Ask in the repo/issues and this can be added as
 
 ## Storage
 - The SN730 NVMe is fine and fast. A second M.2/SATA SSD can be added for dual-boot.
-- To **keep Proxmox** and install macOS alongside, install macOS to a *second* disk — do
-  not erase the SN730.
+- To **keep an existing OS** and install macOS alongside, install macOS to a *second* disk —
+  don't erase the primary disk.
 
 ## Memory
 - 2 free DIMM slots; up to **64 GB** DDR4-2667. Adding a matching pair keeps dual-channel.

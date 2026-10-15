@@ -9,7 +9,7 @@ This is the "research deeply before install" pass.
 
 | Check | Method | Result | Action taken |
 |---|---|---|---|
-| **CFG Lock (MSR 0xE2 bit 15)** | `rdmsr -a 0xE2` on the running host | `0x1E008008` → **bit 15 SET = LOCKED** | `Kernel → Quirks → AppleXcpmCfgLock = true` (mandatory). Optional: unlock with `Tools → ControlMsrE2`, then set it `false`. |
+| **CFG Lock (MSR 0xE2 bit 15)** | `rdmsr -a 0xE2` on the target host | `0x1E008008` → **bit 15 SET = LOCKED** | `Kernel → Quirks → AppleXcpmCfgLock = true` (mandatory). Optional: unlock with `Tools → ControlMsrE2`, then set it `false`. |
 | RTC vs AWAC | DSDT `AWAC._STA` / `RTC._STA` both keyed on `STAS` | `STAS=0` → AWAC on, RTC off (macOS can't use AWAC) | `SSDT-AWAC.aml` sets `STAS=1` under Darwin → legacy RTC enabled. ✅ |
 | PMC / NVRAM | DSDT has no `APP9876`/PMC device | Q370 is a "true" 300-series PCH | `SSDT-PMC.aml` required for native NVRAM. ✅ |
 | Embedded Controller | DSDT `H_EC` (`PNP0C09`) `_STA` | Returns **0 always** → already hidden | No rename/disable needed; fake `EC` (`ACID0001`) via `SSDT-EC-USBX`. ✅ |
@@ -29,7 +29,7 @@ This is the "research deeply before install" pass.
 | ALC233 | `10EC:0235` | AppleALC 1.9.8 | ✅ (layout trial) |
 | SN730 NVMe | `15B7:5006` | native + NVMeFix 1.1.3 | ✅ |
 | Cannon Lake xHCI | `8086:A36D` | native | ✅ (map for USB3) |
-| Wi-Fi/BT | Realtek **RTL8851BU** USB combo (`3625:010B`) | none exists | ❌ **rejected** — Ethernet-only |
+| Wi-Fi/BT | Realtek **RTL8851BU** USB combo (`3625:010B`) | none exists | ❌ no driver — Ethernet-only |
 
 ## 3. Corrections made in this pass
 1. **Audio layout default changed `11 → 3`.** AppleALC's supported-codec list for
@@ -67,10 +67,10 @@ This is the "research deeply before install" pass.
 4. After install: audio layout trial (§6a), USB map (§6b), then copy EFI to the internal disk.
 5. Re-run `./PostInstall/ocvalidate.linux EFI/OC/config.plist` after **any** config edit.
 
-## 6. Wireless decision (tested, not assumed)
-A TP-Link Realtek **RTL8851BU** USB Wi-Fi 6 + BT combo was physically connected and
-probed. It first appears as a fake mass-storage "CD" (`0bda:1a2b`); after mode-switching
-it becomes `3625:010B` and Linux bound `rtw89_8851bu` (Wi-Fi) + `btusb` (BT). Conclusion:
+## 6. Wireless decision
+The **RTL8851BU** USB Wi-Fi 6 + BT combo (a common AX900-class stick) enumerates first as a
+fake mass-storage "CD" (`0bda:1a2b`); after mode-switching it becomes `3625:010B`, and Linux
+binds `rtw89_8851bu` (Wi-Fi) + `btusb` (BT). Conclusion:
 
 - **Wi-Fi (RTL8851BU, rtw89/802.11ax)** → ❌ no macOS driver exists.
 - **Bluetooth (RTL8851BU)** → ❌ the only Realtek USB-BT kext matches RTL8761B/U only.

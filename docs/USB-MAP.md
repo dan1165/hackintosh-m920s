@@ -1,7 +1,7 @@
 # USB port map (hardware-verified)
 
 macOS exposes only the **first 15 ports** of an xHCI controller, so on this machine (26 ports)
-the SuperSpeed ports would be trimmed unless we hand it an explicit map. This repo ships that
+the SuperSpeed ports would be trimmed unless an explicit map is provided. This repo ships that
 map as **`EFI/OC/Kexts/USBPorts.kext`** (enabled in `config.plist → Kernel → Add`), derived by
 probing **this exact machine**, not guessed.
 

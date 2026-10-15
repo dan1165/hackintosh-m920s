@@ -65,7 +65,7 @@ verify_kext() { # name version url
   local theirs
   theirs="$(find "$d" -maxdepth 2 -type d -name "${name}.kext" | head -1)"
   if [ -z "$theirs" ]; then warn "$name.kext not found in upstream zip"; return; fi
-  # compare every file in our copy against theirs
+  # compare every file in the repo copy against theirs
   local ok=1
   while IFS= read -r rel; do
     if ! cmp -s "$ROOT/EFI/OC/Kexts/$name.kext/$rel" "$theirs/$rel"; then ok=0; echo "        differs: $rel"; fi

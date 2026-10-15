@@ -10,7 +10,7 @@ body:
     id: model
     attributes:
       label: Machine model / MTM
-      placeholder: "ThinkCentre M920s 10SKS5KF00"
+      placeholder: "ThinkCentre M920s"
     validations:
       required: true
   - type: textarea

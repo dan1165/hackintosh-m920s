@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-15 — Public-ready: removed host/personal-specific references
+- Removed **all Proxmox / VM 101** references; multi-boot, install and FAQ text is now written
+  generically ("an existing OS").
+- Converted **first-person** wording ("I ran…", "we…") to a neutral, guide-style voice.
+- Removed the **unit-specific MTM** and the **username-based kext bundle id**
+  (`USBPorts.kext` id is now `org.hackintosh-m920s.USBPorts`).
+- Neutralised the Wi-Fi "tested/rejected" anecdote (kept the factual conclusion).
+- README now states the shipped SMBIOS identity is a **reference example** — regenerate your own.
+
 ## 2026-10-15 — Subsystem docs, post-flight tooling & repo automation
 - **11 new deep-dive guides**: `CPU-POWER`, `GRAPHICS`, `AUDIO`, `STORAGE`, `NETWORK`,
   `POWER-SLEEP`, `SECURE-BOOT`, `MULTIBOOT`, `PERFORMANCE`, `DIAGNOSTICS`, `FIRST-BOOT`.
@@ -69,8 +78,8 @@
 - **Docs**: README hub, QUICKSTART, INSTALL, BIOS, HARDWARE, POST-INSTALL, KEXTS, ACPI,
   TOOLS, TROUBLESHOOTING, FAQ, GLOSSARY, UPGRADES, VERSIONS, CREDITS, RELIABILITY-AUDIT.
 - **CI**: GitHub Action runs `ocvalidate` on every push/PR.
-- **Wireless decision**: Ethernet-only. A tested Realtek RTL8851BU USB Wi-Fi 6 + BT combo
-  was rejected (no macOS driver for either half).
+- **Wireless decision**: Ethernet-only. The Realtek RTL8851BU USB Wi-Fi 6 + BT combo has
+  no macOS driver for either half.
 
 ## Corrections during pre-install audit
 - Audio layout fixed `11 → 3` (11 is not a valid ALC233 layout).

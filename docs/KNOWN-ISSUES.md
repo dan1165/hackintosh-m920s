@@ -16,7 +16,7 @@ Honest list of what doesn't work, what's untested, and the workaround for each.
 |---|---|---|
 | **CFG Lock is locked** | Low | Handled by `AppleXcpmCfgLock=true`. Optionally unlock with OpenCore's `ControlMsrE2` tool, then set the quirk `false` |
 | **`STAS`/AWAC** | Low | Handled by `SSDT-AWAC`; do **not** combine with an RTC patch |
-| **Original disk is erased on install** | High | Back up first — the install replaces the Proxmox GPT. Install macOS to a second disk if you want to keep it |
+| **Original disk is erased on install** | High | Back up first — the install replaces the target disk's partition table. Install macOS to a second disk to keep an existing OS |
 
 ## Software
 | Issue | Severity | Notes |

@@ -19,7 +19,7 @@ template. New here? Start with **[`docs/QUICKSTART.md`](docs/QUICKSTART.md)** an
 
 | | |
 |---|---|
-| **Target machine** | Lenovo ThinkCentre M920s (10SKS5KF00), Q370, i7-9700, UHD 630 |
+| **Target machine** | Lenovo ThinkCentre M920s, Q370, i7-9700, UHD 630 |
 | **macOS** | Sonoma 14.x |
 | **Bootloader** | OpenCore **1.0.8** (`ocvalidate` clean) |
 | **SMBIOS** | `iMac19,1` (fallback: `Macmini8,1`) |
@@ -34,10 +34,11 @@ template. New here? Start with **[`docs/QUICKSTART.md`](docs/QUICKSTART.md)** an
 ⚠️ Audio layout-id trial (some boards prefer a different ALC233 layout)
 
 ### What won't work
-❌ Wi-Fi/Bluetooth/AirDrop (no supported card — **Ethernet-only**; a tested USB dongle was
-rejected) · ❌ Rear VGA (analog) · ❌ DRM/Apple TV (iGPU-only)
+❌ Wi-Fi/Bluetooth/AirDrop (no supported card — **Ethernet-only**; no USB Wi-Fi 6 dongle has a macOS driver) · ❌ Rear VGA (analog) · ❌ DRM/Apple TV (iGPU-only)
 
-<sub>*iMessage depends on Apple-side serial validation; a valid serial is provided.</sub>
+<sub>*The SMBIOS identity shipped in this repo (serial/MLB/UUID/ROM) is a **reference example**
+for the target model — **regenerate your own** before signing in to Apple services; see
+[MAINTENANCE](docs/MAINTENANCE.md) and [SECURITY-PRIVACY](docs/SECURITY-PRIVACY.md).</sub>
 
 ---
 
@@ -54,7 +55,7 @@ rejected) · ❌ Rear VGA (analog) · ❌ DRM/Apple TV (iGPU-only)
 Full step-by-step: **[`docs/QUICKSTART.md`](docs/QUICKSTART.md)** (short) ·
 **[`docs/INSTALL.md`](docs/INSTALL.md)** (detailed).
 
-> ⚠️ The install **erases the internal disk** (Proxmox included). Back up first.
+> ⚠️ The install **erases the internal disk** (the existing OS included). Back up first.
 
 ---
 
