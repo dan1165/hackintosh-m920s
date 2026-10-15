@@ -18,8 +18,10 @@ macOS-friendly. Every SSDT here was derived from **this machine's own DSDT**.
 | **SSDT-RHUB** | Some USB ports are missing/broken (forces USB re-enumeration). Rarely needed on Cannon Lake. |
 
 ## Not shipped (documented only)
-- `SSDT-HPET` + DSDT IRQ renames — only if **every** audio layout fails. A wrong HPET patch
-  is worse than none, so it's left out on purpose.
+- `SSDT-HPET` + DSDT IRQ renames — only if **every** audio layout fails. Left out by default, but
+  both renames (`_STA`→`XSTA`, `_CRS`→`XCRS`) and the IPIC/RTC/TIMR IRQ patches were each
+  **verified to match this machine's DSDT exactly once**, so they are known-safe to enable — see
+  **[FIRMWARE-ANALYSIS](FIRMWARE-ANALYSIS.md)** §3.
 
 ## How these were generated
 1. Dump tables: `cp /sys/firmware/acpi/tables/* /tmp && iasl -d DSDT`.

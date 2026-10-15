@@ -27,10 +27,11 @@ template. New here? Start with **[`docs/QUICKSTART.md`](docs/QUICKSTART.md)** an
 
 ### What works
 ✅ Graphics (UHD 630, Metal + video encode) · ✅ Audio (ALC233) · ✅ Ethernet (I219-LM)
-✅ NVMe (WD SN730) · ✅ USB 2 · ✅ Sleep/wake · ✅ CPU power management · ✅ iMessage/FaceTime*
+✅ NVMe (WD SN730) · ✅ USB 2 **and USB 3** (hardware-verified port map) · ✅ Sleep/wake
+✅ CPU power management · ✅ iMessage/FaceTime*
 
 ### What needs a step (documented)
-⚠️ USB 3 speeds (on-device port map) · ⚠️ Audio layout-id trial
+⚠️ Audio layout-id trial (some boards prefer a different ALC233 layout)
 
 ### What won't work
 ❌ Wi-Fi/Bluetooth/AirDrop (no supported card — **Ethernet-only**; a tested USB dongle was
@@ -67,6 +68,8 @@ Full step-by-step: **[`docs/QUICKSTART.md`](docs/QUICKSTART.md)** (short) ·
 | [POST-INSTALL](docs/POST-INSTALL.md) | Audio, USB map, iMessage, power, updates |
 | [KEXTS](docs/KEXTS.md) | Every kext: what it does, why, source |
 | [ACPI](docs/ACPI.md) | Every SSDT and the DSDT facts behind it |
+| [FIRMWARE-ANALYSIS](docs/FIRMWARE-ANALYSIS.md) | Raw DSDT facts, verified SSDT paths & rename patches |
+| [USB-MAP](docs/USB-MAP.md) | The hardware-verified USB port map |
 | [TOOLS](docs/TOOLS.md) | Every tool used to build/validate this |
 | [TROUBLESHOOTING](docs/TROUBLESHOOTING.md) | Symptom → fix table |
 | [FAQ](docs/FAQ.md) | Common questions |
@@ -88,7 +91,8 @@ EFI/
     config.plist             tailored OpenCore 1.0.8 config
     ACPI/                    SSDT-AWAC, EC-USBX, PLUG, PMC, SBUS-MCHC (+RHUB)
     Kexts/                   Lilu, VirtualSMC(+plugins), WhateverGreen, AppleALC,
-                             IntelMausi, NVMeFix, RestrictEvents (+CPUFriend, USBToolBox)
+                             IntelMausi, NVMeFix, RestrictEvents, USBPorts
+                             (+CPUFriend, USBToolBox — disabled)
     Drivers/                 OpenRuntime, OpenHfsPlus, OpenCanopy, AudioDxe, ResetNvramEntry
     Tools/                   OpenShell, ResetSystem, ControlMsrE2, RtcRw
 PostInstall/                 macserial, ocvalidate, macrecovery, USBToolBox, CPUFriend tools

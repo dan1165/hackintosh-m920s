@@ -41,6 +41,14 @@ This is the "research deeply before install" pass.
 4. Verified **every SSDT scope path matches your DSDT** (`LPCB`, `SBUS`, `PR00`, `XHC.RHUB`).
 5. Added a **Macmini8,1 fallback SMBIOS** (iGPU-native) in case the iMac19,1 iGPU config
    misbehaves — see README §6e.
+6. **Shipped a hardware-verified USB port map** (`EFI/OC/Kexts/USBPorts.kext`) so USB 3 runs at
+   full speed with **no manual USBToolBox step** — derived from the xHCI *Supported Protocol*
+   registers (USB2 = ports 1–16, USB3 = 17–26) plus a live plug test on this machine.
+   See **[docs/USB-MAP.md](docs/USB-MAP.md)**.
+7. **Recorded the raw firmware facts** (device map with offsets, `BDID=0x20`, root-scope GNVS
+   `STAS`, `XHC.RHUB` port `_ADR`s) and re-verified the optional HPET rename patches
+   (`_STA`→`XSTA`, `_CRS`→`XCRS`, IPIC/RTC/TIMR IRQ) each match this DSDT **exactly once** —
+   see **[docs/FIRMWARE-ANALYSIS.md](docs/FIRMWARE-ANALYSIS.md)**.
 
 ## 4. Deliberately NOT included (keeps the build reliable and minimal)
 | Item | Why omitted |
@@ -69,4 +77,10 @@ it becomes `3625:010B` and Linux bound `rtw89_8851bu` (Wi-Fi) + `btusb` (BT). Co
 - macOS cannot perform the ZeroCD→WLAN switch, so the stick stays a "CD" anyway.
 
 **DECISION: stay on Ethernet.** Recommended wireless upgrade if ever needed:
-**BCM94360NG** (native Wi-Fi + BT + AirDrop/Handoff). Full detail in `README.md §6d`.
+**BCM94360NG** (native Wi-Fi + BT + AirDrop/Handoff).
+
+If a **USB** dongle is preferred instead, buy one with a **supported Realtek chip** —
+RTL8812AU, RTL8812BU / RTL8822BU, RTL8814AU, RTL8811AU, or RTL8188 / 8192 / 8723BU — which *does*
+have a macOS driver (chris1111's V17 package). Full table in
+**[docs/UPGRADES.md](docs/UPGRADES.md)**. Any **Wi-Fi 6 / 802.11ax** stick (RTL8851BU/8852xx) has
+no macOS driver at all.

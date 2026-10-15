@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-10-15 — Hardware-verified USB map + firmware audit
+- **USB 3 now works out of the box.** Added `EFI/OC/Kexts/USBPorts.kext` (enabled in
+  `Kernel → Add`) — a port map built by probing this exact machine (xHCI *Supported Protocol*
+  register ranges + a live "plug into every port" test), not guessed. See `docs/USB-MAP.md`.
+- **New docs**
+  - `docs/FIRMWARE-ANALYSIS.md` — raw facts read from this machine's DSDT (device map with
+    offsets, `BDID=0x20`, root-scope GNVS `STAS`, `XHC.RHUB` port `_ADR`s) and proof that
+    every shipped SSDT path resolves against it.
+  - `docs/USB-MAP.md` — the verified port map, its evidence, and how to regenerate it.
+- **Verified the optional HPET fixup** against the raw DSDT: `_STA`→`XSTA`, `_CRS`→`XCRS` and
+  the IPIC/RTC/TIMR IRQ patches each match **exactly once** (clustered inside `HPET`) — so it is
+  known-safe to enable. Recorded in `docs/ACPI.md` + `docs/FIRMWARE-ANALYSIS.md`.
+- **Wi-Fi upgrades expanded**: `docs/UPGRADES.md` now lists the USB dongles that actually have a
+  macOS driver (Realtek **RTL8812AU / 8812BU / 8822BU / 8814AU / 8811AU / 8188 / 8192 / 8723BU**,
+  via chris1111's V17 package), and reconfirms the installed **RTL8851BU** has none.
+- README updated: USB 3 marked working; doc index cross-linked.
+
 ## 2026-10-08 — v1.0.0 (initial release)
 - **EFI**: OpenCore 1.0.8 for ThinkCentre M920s; `ocvalidate` clean.
 - **Config tailored from real firmware**:

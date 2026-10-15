@@ -34,16 +34,18 @@ Order to try: `3 → 13 → 21 → 4 → 5 → 27 → 28 → 29 → 32 → 33`.
 
 If truly none work, the next step is an `SSDT-HPET` IRQ fix (see `TROUBLESHOOTING.md`).
 
-## 4. USB 3 (port mapping) — recommended
-Out of the box macOS exposes only the first 15 controller ports, so **USB 3 ports run at
-USB 2 speed**. To fix properly:
+## 4. USB 3 (port mapping) — ✅ already done
+macOS exposes only the first 15 controller ports, so without a map the SuperSpeed ports run at
+USB 2 speed. This repo **ships a hardware-verified map** (`EFI/OC/Kexts/USBPorts.kext`, enabled
+in `Kernel → Add`) built by probing this machine — see **[USB-MAP](USB-MAP.md)**.
+
+To regenerate your own instead (optional):
 1. Boot macOS (USB 2 works everywhere).
 2. Run **USBToolBox** (`PostInstall/USBToolBox-1.2.0-RELEASE.zip`) on Windows or macOS.
 3. Plug a device into **every** port, then **K → Build UTBMap.kext**.
-4. Copy `UTBMap.kext` into `EFI/OC/Kexts/`.
-5. In `config.plist → Kernel → Add`, **enable both** `USBToolBox.kext` and `UTBMap.kext`
-   (USBToolBox first).
-6. Keep `UEFI → Quirks → XhciPortLimit = false`.
+4. Copy `UTBMap.kext` into `EFI/OC/Kexts/`, then enable `USBToolBox.kext` + `UTBMap.kext`
+   (USBToolBox first) and **disable** `USBPorts.kext`.
+5. Keep `UEFI → Quirks → XhciPortLimit = false`.
 
 ## 5. iMessage / FaceTime / App Store
 The SMBIOS is a valid `iMac19,1` with a consistent serial/MLB/ROM (see §SMBIOS below).
