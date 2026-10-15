@@ -21,25 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check relative links resolve
-        run: |
-          python3 - <<'PY'
-          import os, re, glob, sys
-          bad = 0
-          for f in glob.glob('**/*.md', recursive=True):
-              d = os.path.dirname(f)
-              for m in re.finditer(r'\]\(([^)]+)\)', open(f, encoding='utf-8').read()):
-                  t = m.group(1)
-                  if t.startswith(('http', '#', 'mailto:')):
-                      continue
-                  t = t.split('#')[0]
-                  if not t:
-                      continue
-                  if not os.path.exists(os.path.normpath(os.path.join(d, t))):
-                      print(f"::error file={f}::broken link: {t}")
-                      bad += 1
-          print("broken links:", bad)
-          sys.exit(1 if bad else 0)
-          PY
+        run: ./scripts/check-links.sh
 
   shellcheck:
     name: shellcheck

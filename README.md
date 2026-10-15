@@ -69,6 +69,10 @@ Full step-by-step: **[`docs/QUICKSTART.md`](docs/QUICKSTART.md)** (short) ·
 | [BIOS](docs/BIOS.md) | Every BIOS setting, with the reason |
 | [HARDWARE](docs/HARDWARE.md) | Full detected specs + how they were detected |
 | [COMPATIBILITY](docs/COMPATIBILITY.md) | Device → driver matrix for every PCI/USB device |
+| [CPU-POWER](docs/CPU-POWER.md) · [GRAPHICS](docs/GRAPHICS.md) · [AUDIO](docs/AUDIO.md) | Per-subsystem deep-dives |
+| [STORAGE](docs/STORAGE.md) · [NETWORK](docs/NETWORK.md) · [POWER-SLEEP](docs/POWER-SLEEP.md) | Storage, networking, power |
+| [SECURE-BOOT](docs/SECURE-BOOT.md) · [MULTIBOOT](docs/MULTIBOOT.md) | Security settings · multi-OS |
+| [FIRST-BOOT](docs/FIRST-BOOT.md) · [DIAGNOSTICS](docs/DIAGNOSTICS.md) · [PERFORMANCE](docs/PERFORMANCE.md) | After install · debugging · tuning |
 | [FIRMWARE-ANALYSIS](docs/FIRMWARE-ANALYSIS.md) | Raw DSDT facts, verified SSDT paths & rename patches |
 | [ACPI](docs/ACPI.md) | Every SSDT and the DSDT facts behind it |
 | [KEXTS](docs/KEXTS.md) | Every kext: what it does, why, source |
@@ -114,8 +118,10 @@ EFI/
     Tools/                   OpenShell, ResetSystem, ControlMsrE2, RtcRw
 PreInstall/                  pre-install checks + installer staging scripts
 PostInstall/                 macserial, ocvalidate, macrecovery, USBToolBox, CPUFriend tools
+scripts/                     repo maintenance (markdown link check)
 docs/                        all guides
-.github/workflows/           CI: ocvalidate on EFI changes; link-check + shellcheck on docs
+Makefile                     make check / verify / validate / stage / docs / lint / release
+.github/                     CI workflows, issue forms, PR template, CODEOWNERS
 ThinkCentre-M920s-Sonoma-OC1.0.8.zip   packaged release
 ```
 

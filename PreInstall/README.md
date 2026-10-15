@@ -16,6 +16,7 @@ really are the official upstream releases.
 | [`check-efi.sh`](check-efi.sh) | config parses, referenced files exist, `ocvalidate`, `USBPorts` sanity | `python3` |
 | [`check-msr.sh`](check-msr.sh) | CFG Lock (MSR `0xE2`) + DMAR/VT-d vs the config quirks | root, `msr-tools` |
 | [`verify-upstream.sh`](verify-upstream.sh) | downloads official releases, confirms SHA-256 of bundled files | network |
+| [`check-usb-map.sh`](check-usb-map.sh) | validates `USBPorts.kext` against the live xHCI | root (for protocols) |
 | [`stage-installer.sh`](stage-installer.sh) | downloads the iMac19,1 recovery + copies `EFI/` into a staging folder | network |
 
 ## Typical flow

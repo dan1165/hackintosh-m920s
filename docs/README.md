@@ -22,6 +22,21 @@ Start at the [project README](../README.md). This page is the map of every guide
 | [USB-MAP](USB-MAP.md) | the hardware-verified USB port map |
 | [VERSIONS](VERSIONS.md) | bill of materials (all versions) |
 
+## Subsystems
+| Guide | Contents |
+|---|---|
+| [CPU-POWER](CPU-POWER.md) | XCPM, P-states, CPUFriend |
+| [GRAPHICS](GRAPHICS.md) | UHD 630 framebuffer, WhateverGreen |
+| [AUDIO](AUDIO.md) | AppleALC, ALC233 layouts |
+| [STORAGE](STORAGE.md) | NVMe/SATA, APFS, TRIM |
+| [NETWORK](NETWORK.md) | Ethernet + Wi-Fi options |
+| [POWER-SLEEP](POWER-SLEEP.md) | sleep/wake, pmset |
+| [SECURE-BOOT](SECURE-BOOT.md) | SecureBootModel / Vault / SIP |
+| [MULTIBOOT](MULTIBOOT.md) | macOS + Windows + Linux |
+| [PERFORMANCE](PERFORMANCE.md) | benchmarks & tuning |
+| [DIAGNOSTICS](DIAGNOSTICS.md) | logs, ioreg, gathering evidence |
+| [FIRST-BOOT](FIRST-BOOT.md) | what to do right after install |
+
 ## Operating & upkeep
 | Guide | Read it when… |
 |---|---|

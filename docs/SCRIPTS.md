@@ -11,6 +11,7 @@ Every script in this repo, what it does, and how to run it.
 | `check-msr.sh` | CFG Lock + DMAR vs the config quirks | `sudo ./PreInstall/check-msr.sh` |
 | `verify-upstream.sh` | bundled binaries == official releases (SHA-256) | `./PreInstall/verify-upstream.sh` |
 | `stage-installer.sh` | download recovery + copy EFI to a staging folder | `./PreInstall/stage-installer.sh [OUTDIR]` |
+| `check-usb-map.sh` | sanity-check `USBPorts.kext` vs the live xHCI | `sudo ./PreInstall/check-usb-map.sh` |
 | `lib.sh` | shared helpers (sourced, not run) | — |
 
 ## `PostInstall/` — run after macOS boots
@@ -20,6 +21,7 @@ Every script in this repo, what it does, and how to run it.
 | `macserial.linux` | generate SMBIOS serial/MLB/UUID | `./PostInstall/macserial.linux -g -m iMac19,1` |
 | `macrecovery/macrecovery.py` | download a macOS recovery | `python3 .../macrecovery.py -b <board> download -o <dir>` |
 | `usb-port-report.sh` | probe which USB ports are wired | `./PostInstall/usb-port-report.sh` |
+| `postflight.sh` | verify the installed macOS (kexts, sensors, graphics, XCPM) | `./PostInstall/postflight.sh` |
 | `ResourceConverter.sh` | build a CPUFriend `DataProvider` | `./PostInstall/ResourceConverter.sh --kext <plist>` |
 | `ocpasswordgen/` | OpenCore picker password generator | see folder |
 | `CPUFriend-Tools/` | frequency-vector tooling | see folder |
@@ -30,6 +32,23 @@ Every script in this repo, what it does, and how to run it.
 - **Read-only** on the machine, except `stage-installer.sh` which writes only to its output dir.
 - All scripts are plain **bash**; the checks additionally need `python3` (and `lspci`, `rdmsr`,
   `curl` for their respective checks).
+
+## `scripts/` — repo maintenance
+| Script | Purpose | Usage |
+|---|---|---|
+| `check-links.sh` | verify every relative Markdown link resolves | `./scripts/check-links.sh` |
+
+## `Makefile`
+| Target | Does |
+|---|---|
+| `make check` / `make check-all` | pre-flight (fast / full: MSR + upstream) |
+| `make verify` | upstream SHA-256 check of bundled binaries |
+| `make validate` | `ocvalidate` the config |
+| `make stage` | stage an installer USB folder |
+| `make docs` | markdown link check |
+| `make lint` | `shellcheck` the bundled scripts |
+| `make release` | package the release zip |
+| `make clean` | remove staging/artefacts |
 
 ## CI
 | Workflow | What it does |

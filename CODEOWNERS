@@ -1,0 +1,12 @@
+# Default owners for everything in the repo.
+*                       @dan1165
+
+# Core build
+/EFI/                   @dan1165
+/docs/                  @dan1165
+/PreInstall/            @dan1165
+/PostInstall/           @dan1165
+
+# Project meta
+/.github/               @dan1165
+/SECURITY.md            @dan1165

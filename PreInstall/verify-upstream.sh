@@ -38,8 +38,23 @@ if fetch_zip "https://github.com/acidanthera/OpenCorePkg/releases/download/1.0.8
   for f in "$ROOT"/EFI/OC/Tools/*; do
     b="$(basename "$f")"; cmp_file "Tools/$b" "$f" "$OCD/X64/EFI/OC/Tools/$b"
   done
+  hdr "PostInstall utilities (from the OpenCore zip)"
+  cmp_file "ocvalidate.linux" "$ROOT/PostInstall/ocvalidate.linux" "$OCD/Utilities/ocvalidate/ocvalidate.linux"
+  cmp_file "macserial.linux"  "$ROOT/PostInstall/macserial.linux"  "$OCD/Utilities/macserial/macserial.linux"
+  cmp_file "ocpasswordgen"    "$ROOT/PostInstall/ocpasswordgen/ocpasswordgen" "$OCD/Utilities/ocpasswordgen/ocpasswordgen"
+  for f in README.md boards.json build-image.sh macrecovery.bat macrecovery.py recovery_urls.txt; do
+    cmp_file "macrecovery/$f" "$ROOT/PostInstall/macrecovery/$f" "$OCD/Utilities/macrecovery/$f"
+  done
 else
   warn "could not download OpenCore (offline?) — skipped"
+fi
+
+# ---------------------------------------------------------------- USBToolBox --
+hdr "USBToolBox 1.2.0"
+if fetch_zip "https://github.com/USBToolBox/kext/releases/download/1.2.0/USBToolBox-1.2.0-RELEASE.zip" "$TMP/utb"; then
+  cmp_file "USBToolBox-1.2.0-RELEASE.zip" "$ROOT/PostInstall/USBToolBox-1.2.0-RELEASE.zip" "$TMP/utb/pkg.zip"
+else
+  warn "could not download USBToolBox — skipped"
 fi
 
 # -------------------------------------------------------------------- Kexts ---

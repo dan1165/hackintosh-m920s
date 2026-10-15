@@ -1,0 +1,17 @@
+# Normalise text, mark binaries as binary
+* text=auto eol=lf
+
+# Binary artefacts (never diff/eol-convert)
+*.efi   binary
+*.kext  binary
+*.zip   binary
+*.dmg   binary
+*.aml   binary
+*.icns  binary
+*.bt    binary
+*.raw   binary
+
+# Vendored third-party trees — keep them out of language stats / blame noise
+EFI/OC/Drivers/**  linguist-vendored
+EFI/OC/Tools/**    linguist-vendored
+PostInstall/**     linguist-vendored

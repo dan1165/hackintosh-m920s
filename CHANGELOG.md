@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-10-15 — Subsystem docs, post-flight tooling & repo automation
+- **11 new deep-dive guides**: `CPU-POWER`, `GRAPHICS`, `AUDIO`, `STORAGE`, `NETWORK`,
+  `POWER-SLEEP`, `SECURE-BOOT`, `MULTIBOOT`, `PERFORMANCE`, `DIAGNOSTICS`, `FIRST-BOOT`.
+- **New tooling**: `PostInstall/postflight.sh` (verify the installed macOS),
+  `PreInstall/check-usb-map.sh`, `scripts/check-links.sh`, and a top-level **`Makefile`**
+  (`check` / `verify` / `validate` / `stage` / `docs` / `lint` / `release`).
+- **`verify-upstream.sh` extended** to also hash-check the PostInstall utilities
+  (ocvalidate, macserial, ocpasswordgen, macrecovery) and the USBToolBox release.
+- **Repo automation**: `CODEOWNERS`, `.editorconfig`, `.gitattributes`,
+  `.github/workflows/release.yml` (validate → package → publish on tag).
+- README / docs-index / SCRIPTS / PreInstall README updated.
+
 ## 2026-10-15 — Pre-install tooling, diagnostics & docs expansion
 - **New `PreInstall/` suite** (run on the target machine *before* install):
   `preflight.sh` (master), `check-hardware.sh`, `check-efi.sh`, `check-msr.sh` (CFG Lock / DMAR),
