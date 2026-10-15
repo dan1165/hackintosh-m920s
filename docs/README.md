@@ -7,6 +7,7 @@ Start at the [project README](../README.md). This page is the map of every guide
 |---|---|
 | [QUICKSTART](QUICKSTART.md) | you want the 10-minute overview |
 | [INSTALL](INSTALL.md) | you're building the USB / installing macOS |
+| [PRE-INSTALL-CHECKLIST](PRE-INSTALL-CHECKLIST.md) | you're about to install and want a tick-list |
 | [BIOS](BIOS.md) | you're setting up firmware before install |
 | [GLOSSARY](GLOSSARY.md) | a term is unfamiliar |
 
@@ -26,6 +27,7 @@ Start at the [project README](../README.md). This page is the map of every guide
 |---|---|
 | [POST-INSTALL](POST-INSTALL.md) | after macOS boots (audio, iMessage, sensors) |
 | [MAINTENANCE](MAINTENANCE.md) | updating OpenCore/kexts/macOS safely |
+| [SCRIPTS](SCRIPTS.md) | you want to know what every script does |
 | [RECOVERY](RECOVERY.md) | a boot fails and you need to roll back |
 | [TROUBLESHOOTING](TROUBLESHOOTING.md) | something broke — symptom → fix |
 | [KNOWN-ISSUES](KNOWN-ISSUES.md) | what won't work and the workarounds |
@@ -39,6 +41,7 @@ Start at the [project README](../README.md). This page is the map of every guide
 | [SECURITY-PRIVACY](SECURITY-PRIVACY.md) | SMBIOS/MAC/UUID handling + secret hygiene |
 | [REFERENCES](REFERENCES.md) | upstream specs & authoritative links |
 | [UPGRADES](UPGRADES.md) | Wi-Fi, dGPU, RAM, storage options |
+| [OPTIONAL-COMPONENTS](OPTIONAL-COMPONENTS.md) | extra kexts/drivers/tools/fixes and when to add them |
 | [TOOLS](TOOLS.md) | every tool used to build/validate this |
 | [CREDITS](CREDITS.md) | upstream projects & licences |
 

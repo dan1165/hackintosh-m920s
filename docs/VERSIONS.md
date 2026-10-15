@@ -32,6 +32,25 @@ Everything bundled in this repo, with versions. Config was validated with OpenCo
 | AudioDxe.efi | Boot chime |
 | ResetNvramEntry.efi | Picker NVRAM reset entry |
 | HiiDatabase.efi | Firmware settings UI |
+| ToggleSipEntry.efi | Picker SIP on/off entry |
+| CrScreenshotDxe.efi | Picker screenshots (F10) |
+| OpenPartitionDxe.efi | Partition services for arbitrary layouts |
+
+## OpenCore tools (`EFI/OC/Tools/`, registered in `Misc → Tools`)
+| Tool | Purpose |
+|---|---|
+| OpenShell.efi | UEFI shell |
+| ResetSystem.efi | Reboot / shutdown |
+| ControlMsrE2.efi | Read/clear CFG Lock (MSR 0xE2) |
+| RtcRw.efi | Read/write CMOS RTC |
+| CleanNvram.efi | Delete all NVRAM variables |
+| CsrUtil.efi | Toggle SIP from the picker |
+| ListPartitions.efi | List disks/partitions (diagnostic) |
+| MmapDump.efi | Dump UEFI memory map (DevirtualiseMmio debug) |
+| KeyTester.efi | Show key scancodes |
+
+_Included but not registered (add to `Misc → Tools` if wanted): `BootKicker`, `ChipTune`,
+`FontTester`, `GopStop`, `TpmInfo`, `OpenControl`._
 
 ## Tools (in `PostInstall/`)
 | Tool | Version | Purpose |

@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-10-15 — Pre-install tooling, diagnostics & docs expansion
+- **New `PreInstall/` suite** (run on the target machine *before* install):
+  `preflight.sh` (master), `check-hardware.sh`, `check-efi.sh`, `check-msr.sh` (CFG Lock / DMAR),
+  `verify-upstream.sh` (SHA-256 of bundled binaries vs the official releases), and
+  `stage-installer.sh` (download the iMac19,1 recovery + copy `EFI/`). All checks pass on the
+  documented M920s.
+- **OpenCore tools registered** (`Misc → Tools`): `ControlMsrE2`, `RtcRw`, `CleanNvram`,
+  `CsrUtil`, `ListPartitions`, `MmapDump`, `KeyTester` (on top of OpenShell/ResetSystem).
+- **OpenCore drivers added** (`UEFI → Drivers`): `ToggleSipEntry`, `CrScreenshotDxe`,
+  `OpenPartitionDxe`.
+- **New docs**: `PRE-INSTALL-CHECKLIST`, `SCRIPTS`, `OPTIONAL-COMPONENTS`.
+- **CI**: new `docs.yml` workflow — markdown relative-link check + `shellcheck`.
+- README / TOOLS / VERSIONS / docs-index updated.
+
 ## 2026-10-15 — Professional documentation set
 - **Root project policies:** `CONTRIBUTING.md`, `SECURITY.md`, `SUPPORT.md`, `CODE_OF_CONDUCT.md`.
 - **New guides:** `docs/README.md` (index), `docs/COMPATIBILITY.md` (full device → driver matrix),

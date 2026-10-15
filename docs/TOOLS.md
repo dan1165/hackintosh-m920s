@@ -34,9 +34,14 @@ Lilu, VirtualSMC, WhateverGreen, AppleALC, IntelMausi, NVMeFix, RestrictEvents, 
 | Tool | Used for |
 |---|---|
 | `git` | Version control + push to GitHub |
-| `python3` (`plistlib`) | Generate the tailored `config.plist` |
+| `python3` (`plistlib`) | Generate/validate the tailored `config.plist` |
+| `shellcheck` | Lint the bundled shell scripts (also run in CI) |
 | `zip` | Package the `…-OC1.0.8.zip` release |
-| GitHub Actions | CI that runs `ocvalidate` on every push (`.github/workflows/validate.yml`) |
+| GitHub Actions | CI: `ocvalidate` (`.github/workflows/validate.yml`) + markdown link-check & `shellcheck` (`.github/workflows/docs.yml`) |
+
+## Bundled scripts (this repo)
+`PreInstall/*.sh` run the pre-install checks and stage the installer; the `PostInstall/*` tools run
+after macOS boots. Full reference: [`SCRIPTS.md`](SCRIPTS.md).
 
 ## Credits
 All third-party projects are the work of their authors — see [`CREDITS.md`](CREDITS.md).

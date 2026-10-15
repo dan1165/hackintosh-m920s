@@ -44,10 +44,11 @@ rejected) · ❌ Rear VGA (analog) · ❌ DRM/Apple TV (iGPU-only)
 ## Quick start
 
 ```text
-1. Flash a USB with the Sonoma recovery + this EFI   (docs/INSTALL.md §1)
+0. Verify the machine + EFI:  ./PreInstall/preflight.sh --all
+1. Build the USB:  ./PreInstall/stage-installer.sh
 2. BIOS: Secure Boot OFF, CSM OFF, iGPU primary, AHCI (docs/BIOS.md)
-3. Boot the USB, erase the disk, install Sonoma       (docs/INSTALL.md)
-4. Copy the EFI to the internal disk                  (docs/INSTALL.md §6)
+3. Boot the USB, erase the disk, install                  (docs/INSTALL.md)
+4. Copy the EFI to the internal disk                      (docs/INSTALL.md §6)
 ```
 
 Full step-by-step: **[`docs/QUICKSTART.md`](docs/QUICKSTART.md)** (short) ·
@@ -63,6 +64,7 @@ Full step-by-step: **[`docs/QUICKSTART.md`](docs/QUICKSTART.md)** (short) ·
 |---|---|
 | **[docs/README.md](docs/README.md)** | **full documentation index** |
 | [QUICKSTART](docs/QUICKSTART.md) | 10-minute overview / TL;DR |
+| [PRE-INSTALL-CHECKLIST](docs/PRE-INSTALL-CHECKLIST.md) | Tick-list before you install |
 | [INSTALL](docs/INSTALL.md) | Detailed install, USB creation, post-boot setup |
 | [BIOS](docs/BIOS.md) | Every BIOS setting, with the reason |
 | [HARDWARE](docs/HARDWARE.md) | Full detected specs + how they were detected |
@@ -80,6 +82,7 @@ Full step-by-step: **[`docs/QUICKSTART.md`](docs/QUICKSTART.md)** (short) ·
 | [FAQ](docs/FAQ.md) | Common questions |
 | [GLOSSARY](docs/GLOSSARY.md) | Hackintosh terms in plain language |
 | [UPGRADES](docs/UPGRADES.md) | Wi-Fi, dGPU, RAM, storage |
+| [OPTIONAL-COMPONENTS](docs/OPTIONAL-COMPONENTS.md) | Extra kexts/drivers/tools/fixes, when to add |
 | [VERSIONS](docs/VERSIONS.md) | Bill of materials (all versions) |
 | [CREDITS](docs/CREDITS.md) | Upstream projects & licenses |
 | [REFERENCES](docs/REFERENCES.md) | Specs & authoritative links |
@@ -87,6 +90,7 @@ Full step-by-step: **[`docs/QUICKSTART.md`](docs/QUICKSTART.md)** (short) ·
 | [DECISIONS](docs/DECISIONS.md) | Design decisions (ADR-style) |
 | [SECURITY-PRIVACY](docs/SECURITY-PRIVACY.md) | SMBIOS/MAC handling + secret hygiene |
 | [TOOLS](docs/TOOLS.md) | Every tool used to build/validate this |
+| [SCRIPTS](docs/SCRIPTS.md) | Every script, its purpose and usage |
 | [RELIABILITY-AUDIT](RELIABILITY-AUDIT.md) | Firmware-level pre-flight verification |
 | [CHANGELOG](CHANGELOG.md) | History |
 
@@ -108,9 +112,10 @@ EFI/
                              (+CPUFriend, USBToolBox — disabled)
     Drivers/                 OpenRuntime, OpenHfsPlus, OpenCanopy, AudioDxe, ResetNvramEntry
     Tools/                   OpenShell, ResetSystem, ControlMsrE2, RtcRw
+PreInstall/                  pre-install checks + installer staging scripts
 PostInstall/                 macserial, ocvalidate, macrecovery, USBToolBox, CPUFriend tools
 docs/                        all guides
-.github/workflows/           CI: runs ocvalidate on every push
+.github/workflows/           CI: ocvalidate on EFI changes; link-check + shellcheck on docs
 ThinkCentre-M920s-Sonoma-OC1.0.8.zip   packaged release
 ```
 
