@@ -19,6 +19,7 @@ Everything bundled in this repo, with versions. Config was validated with OpenCo
 | IntelMausi | 1.0.8 | enabled |
 | NVMeFix | 1.1.3 | enabled |
 | RestrictEvents | 1.1.6 | enabled |
+| USBPorts | 1.0 (this repo) | enabled |
 | CPUFriend | 1.3.0 | disabled |
 | USBToolBox | 1.2.0 | disabled |
 
@@ -39,6 +40,7 @@ Everything bundled in this repo, with versions. Config was validated with OpenCo
 | ocvalidate (linux) | 1.0.8 | Validate `config.plist` |
 | macrecovery | 1.0.8 | Download macOS recovery |
 | USBToolBox | 1.2.0 | Build USB port map |
+| usb-port-report.sh | 1.0 (this repo) | Probe which USB ports are wired |
 | ResourceConverter.sh | 1.3.0 | Build CPUFriend DataProvider |
 
 ## Target OS

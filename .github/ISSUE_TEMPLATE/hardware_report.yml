@@ -1,0 +1,47 @@
+name: Hardware report
+description: Your machine differs from the documented ThinkCentre M920s
+labels: ["hardware"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This repo targets one exact machine. If yours differs, tell us how — it may need a variant.
+  - type: input
+    id: model
+    attributes:
+      label: Machine model / MTM
+      placeholder: "ThinkCentre M920s 10SKS5KF00"
+    validations:
+      required: true
+  - type: textarea
+    id: pci
+    attributes:
+      label: "`lspci -nn`"
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: usb
+    attributes:
+      label: "`lsusb`"
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: dmi
+    attributes:
+      label: "`dmidecode -t 1,2` and BIOS version"
+      render: text
+    validations:
+      required: true
+  - type: checkboxes
+    id: diffs
+    attributes:
+      label: Which of these differ from docs/HARDWARE.md?
+      options:
+        - label: CPU
+        - label: BIOS revision
+        - label: Storage
+        - label: Wi-Fi/BT option
+        - label: RAM
+        - label: Display outputs

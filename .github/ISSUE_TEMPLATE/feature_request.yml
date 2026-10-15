@@ -1,0 +1,26 @@
+name: Feature request
+description: Suggest a documentation or EFI improvement
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Be specific (which file / key / doc). Link a source if it's a technical claim.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This does not regress the documented M920s
+          required: true
+        - label: I'm not asking to commit secrets or large binaries
+          required: true

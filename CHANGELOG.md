@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-15 — Professional documentation set
+- **Root project policies:** `CONTRIBUTING.md`, `SECURITY.md`, `SUPPORT.md`, `CODE_OF_CONDUCT.md`.
+- **New guides:** `docs/README.md` (index), `docs/COMPATIBILITY.md` (full device → driver matrix),
+  `docs/VERIFICATION.md` (methodology + results log), `docs/MAINTENANCE.md`, `docs/RECOVERY.md`,
+  `docs/BOOT-PROCESS.md`, `docs/KNOWN-ISSUES.md`, `docs/DECISIONS.md` (ADR-style),
+  `docs/SECURITY-PRIVACY.md`, `docs/REFERENCES.md`.
+- **GitHub:** issue forms (bug / hardware / feature) + `PULL_REQUEST_TEMPLATE.md` + issue config.
+- **Indexes:** README doc table and `docs/README.md` updated; `docs/VERSIONS.md` now lists
+  `USBPorts.kext` and the `usb-port-report.sh` helper.
+
 ## 2026-10-15 — Hardware-verified USB map + firmware audit
 - **USB 3 now works out of the box.** Added `EFI/OC/Kexts/USBPorts.kext` (enabled in
   `Kernel → Add`) — a port map built by probing this exact machine (xHCI *Supported Protocol*

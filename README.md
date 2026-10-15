@@ -61,24 +61,37 @@ Full step-by-step: **[`docs/QUICKSTART.md`](docs/QUICKSTART.md)** (short) ·
 
 | Guide | What's inside |
 |---|---|
+| **[docs/README.md](docs/README.md)** | **full documentation index** |
 | [QUICKSTART](docs/QUICKSTART.md) | 10-minute overview / TL;DR |
 | [INSTALL](docs/INSTALL.md) | Detailed install, USB creation, post-boot setup |
 | [BIOS](docs/BIOS.md) | Every BIOS setting, with the reason |
 | [HARDWARE](docs/HARDWARE.md) | Full detected specs + how they were detected |
-| [POST-INSTALL](docs/POST-INSTALL.md) | Audio, USB map, iMessage, power, updates |
-| [KEXTS](docs/KEXTS.md) | Every kext: what it does, why, source |
-| [ACPI](docs/ACPI.md) | Every SSDT and the DSDT facts behind it |
+| [COMPATIBILITY](docs/COMPATIBILITY.md) | Device → driver matrix for every PCI/USB device |
 | [FIRMWARE-ANALYSIS](docs/FIRMWARE-ANALYSIS.md) | Raw DSDT facts, verified SSDT paths & rename patches |
+| [ACPI](docs/ACPI.md) | Every SSDT and the DSDT facts behind it |
+| [KEXTS](docs/KEXTS.md) | Every kext: what it does, why, source |
 | [USB-MAP](docs/USB-MAP.md) | The hardware-verified USB port map |
-| [TOOLS](docs/TOOLS.md) | Every tool used to build/validate this |
+| [POST-INSTALL](docs/POST-INSTALL.md) | Audio, USB map, iMessage, power, updates |
+| [MAINTENANCE](docs/MAINTENANCE.md) | Updating OpenCore/kexts/macOS safely |
+| [RECOVERY](docs/RECOVERY.md) | Roll back a bad boot |
+| [BOOT-PROCESS](docs/BOOT-PROCESS.md) | The full boot chain, stage by stage |
 | [TROUBLESHOOTING](docs/TROUBLESHOOTING.md) | Symptom → fix table |
+| [KNOWN-ISSUES](docs/KNOWN-ISSUES.md) | What won't work + workarounds |
 | [FAQ](docs/FAQ.md) | Common questions |
 | [GLOSSARY](docs/GLOSSARY.md) | Hackintosh terms in plain language |
 | [UPGRADES](docs/UPGRADES.md) | Wi-Fi, dGPU, RAM, storage |
 | [VERSIONS](docs/VERSIONS.md) | Bill of materials (all versions) |
 | [CREDITS](docs/CREDITS.md) | Upstream projects & licenses |
+| [REFERENCES](docs/REFERENCES.md) | Specs & authoritative links |
+| [VERIFICATION](docs/VERIFICATION.md) | What was verified, how, with what result |
+| [DECISIONS](docs/DECISIONS.md) | Design decisions (ADR-style) |
+| [SECURITY-PRIVACY](docs/SECURITY-PRIVACY.md) | SMBIOS/MAC handling + secret hygiene |
+| [TOOLS](docs/TOOLS.md) | Every tool used to build/validate this |
 | [RELIABILITY-AUDIT](RELIABILITY-AUDIT.md) | Firmware-level pre-flight verification |
 | [CHANGELOG](CHANGELOG.md) | History |
+
+Project policies: [CONTRIBUTING](CONTRIBUTING.md) · [SECURITY](SECURITY.md) ·
+[SUPPORT](SUPPORT.md) · [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md).
 
 ---
 
